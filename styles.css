@@ -1,0 +1,81 @@
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #2d3038;
+}
+
+h1, p {
+  color: #e3e4e8;
+}
+
+h1 {
+  font-style: semi-bold;
+  text-align: center;
+  margin: 50px;
+}
+
+button {
+  background-color: #e3e4e8;
+  border-radius: 12px;
+  color: #2d3038;
+  padding: 15px;
+  font-size: 18px;
+  font-family:  'Source Code Pro', monospace;
+  width: 100%;
+}
+
+button:hover{
+    box-shadow: 0 0 1px 1px #cbccd1;
+}
+
+.flex-container {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.line {
+  width: .3em;
+  height: 7em;
+  border-right: .3em solid #e3e4e8;
+  position: absolute;
+
+}
+
+.line:hover {
+  width: .3em;
+  height: 7em;
+  border-right: .3em solid #e3e4e8;
+  position: absolute;
+  display: none;
+}
+
+@keyframes arrowDown {
+  from {height: 0;}
+  to {height: 7em;}
+}
+
+.subArrowDown {
+  width: .3em;
+  height: 0;
+  border-right: .3em solid #e3e4e8;
+  margin: auto;
+  animation-name: arrowDown;
+  animation-duration: 2s;
+}
+
+.locArrowDown {
+  width: .3em;
+  height: 0;
+  border-right: .3em solid #e3e4e8;
+  margin: auto;
+  animation-name: arrowDown;
+  animation-duration: 2s;
+}
+
+.adjArrowDown {
+  width: .3em;
+  height: 0;
+  border-right: .3em solid #e3e4e8;
+  margin: auto;
+  animation-name: arrowDown;
+  animation-duration: 2s;
+}
