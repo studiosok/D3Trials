@@ -11,20 +11,21 @@
     <h1>Idea Triggers</h1>
 
     <div class="flex-container">
-      <div>
-      <button class="" id="subject">
+      <div> <!--button should generate random word call 'subject'-->
+      <button class="subjectCall" id="subject">
         Subject
       </button>
       <div class="subArrowDown"></div>
       </div>
-      <div>
-      <button class="" id="location">
+      <div> <!--button should generate random word call for location-->
+      <button class="locationCall" id="location">
         Location
       </button>
       <div class="locArrowDown"></div>
+      <div><input id='beforeSearch' type="text"></input></div>
       </div>
-      <div>
-      <button class="" id="adjective">
+      <div> <!--button should generate random word call for adjective-->
+      <button class="adjCall" id="adjective">
         Adjective
       </button>
       <div class="adjArrowDown"></div>
@@ -37,7 +38,7 @@
           integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
           crossorigin="anonymous"></script>
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- Add the axios script tag here -->
-      <script src="js/app.js"></script>
+
     <script src="writingPrompt.js"></script>
   </body>
 </html>

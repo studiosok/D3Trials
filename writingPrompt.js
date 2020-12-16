@@ -2,57 +2,56 @@ $(() => {
   $('.search').submit((e) => {
     e.preventDefault()
 
-    const query = $('#query').val()
-    // console.log(query)
-
-    subjectCall(query)
-    afterClick()
   })
-
-  /*function afterClick () {
-    $('#beforeClick').toggle()
-    $('#afterClick').toggle()
-    $('#afterClicks').toggle()
-    $('.onReset').toggle()
-    $('#showBox').text(query)
-  }*/
-
-  function displayResults (outputs) {
-      // console.log(outputs)
-      // outputs.forEach((output) => {
-        $('#showDefinition').append(
-            `${outputs.definition}`
-          )
-      // })
-    }
-
-    function displaySearchedWord (output) {
-            $('#showBox').text(
-              `${output.word}`)
-      }
 
   const dictionaryKey = '9f0b135d-1941-494c-b7bc-aeebe975e633'
   const thesaurusKey = 'c92046af-44ce-408b-805b-f0890890dafe'
 
+let searchTerm = "fig"
+subjectCall(searchTerm)
+adjectiveCall(searchTerm)
+locationCall()
 
   async function subjectCall(searchTerm) {
-    let headword = word
-    let ref
   const url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
+  const call = `${url}${searchTerm}${'?key='}${dictionaryKey}`
     try {
-    const response = await axios.get(url, {
-      params: { headword,  ?key=: dictionaryKey
-      }
-    })
-    // console.log(response.data.list[0].definition)
-    displayResults(response.data.list[0])
-    displaySearchedWord(response.data.list[0])
+    const response = await axios.get(call)
+    console.log(response)
   } catch(error) {
     console.log(error)
   }
-
   }
 
+  function getNumber(min, max){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+  
+  async function locationCall() {
+    const url = 'https://swapi.dev/api/planets/'
+    const number = getNumber(0, 60)
+    const call = `${url}${number}${'/'}`
+      try {
+      const response = await axios.get(call)
+      let location = response.data.name
+      console.log(location)
+    } catch(error) {
+      console.log(error)
+    }
+    }
+
+  async function adjectiveCall(searchTerm) {
+    const url = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/'
+    const call = `${url}${searchTerm}${'?key='}${thesaurusKey}`
+      try {
+      const response = await axios.get(call)
+      console.log(response)
+    } catch(error) {
+      console.log(error)
+    }
+    }
 
 
 })
