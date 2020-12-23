@@ -9,29 +9,23 @@
   </head>
   <body>
     <h1>Idea Triggers</h1>
-
-    <div class="flex-container">
-      <div> <!--button should generate random word call 'subject'-->
-      <button class="subjectCall" id="subject">
-        Subject
+    <div class = "center">
+      <div> 
+      <button class="thoughtCall" id="afterClick">
+        Gimme Thoughts
       </button>
-      <div class="subArrowDown"></div>
-      </div>
-      <div> <!--button should generate random word call for location-->
-      <button class="locationCall" id="location">
-        Location
-      </button>
-      <div class="locArrowDown"></div>
-      <div><input id='beforeSearch' type="text"></input></div>
-      </div>
-      <div> <!--button should generate random word call for adjective-->
-      <button class="adjCall" id="adjective">
-        Adjective
-      </button>
-      <div class="adjArrowDown"></div>
+     <!-- <button id="beforeClick">
+        Gimme Different Thoughts
+      </button>-->
+      </div> 
+      <div id="text"><h3>Something about:</h3></div>
+      <div id='showSub'></div>
+      <div id="text"><h3>In (or associated with) a place called:</h3></div>
+      <div id='showLoc'></div>
+      <div id="text"><h3>Magic word of the current 24 hour period:</h3></div>
+      <div id='showAdj'></div>
       </div>
     </div>
-
 
     <script
           src="https://code.jquery.com/jquery-3.4.1.min.js"

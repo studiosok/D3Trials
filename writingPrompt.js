@@ -4,24 +4,39 @@ $(() => {
 
   })
 
-  const dictionaryKey = '9f0b135d-1941-494c-b7bc-aeebe975e633'
-  const thesaurusKey = 'c92046af-44ce-408b-805b-f0890890dafe'
-
-let searchTerm = "fig"
-subjectCall(searchTerm)
-adjectiveCall(searchTerm)
-locationCall()
-
-  async function subjectCall(searchTerm) {
-  const url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
-  const call = `${url}${searchTerm}${'?key='}${dictionaryKey}`
-    try {
-    const response = await axios.get(call)
-    console.log(response)
-  } catch(error) {
-    console.log(error)
+  const clickCall = function() {
+    subjectCall()
+    locationCall()
+    adjectiveCall()
   }
-  }
+$("button").click(clickCall)
+
+function displaySubject(subject) {
+  $('#showSub').text(`${subject}`)
+}
+
+function displayLocation(location) {
+  $('#showLoc').text(`${location}`)
+}
+
+function displayAdjective(adjective) {
+  $('#showAdj').text(`${adjective}`)
+}
+
+const randomKey = 'zb9gbcfcmjbl0b0cmni9wr47r2au0gzp03c06cr5bkzxrqpbc'
+
+  async function subjectCall() {
+    const randomUrl = `${"https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key="}`
+    const call = `${randomUrl}${randomKey}`
+      try {
+      const response = await axios.get(call)
+      let subject = response.data.word
+      displaySubject(response.data.word)
+      return subject
+    } catch(error) {
+      console.log(error)
+      }
+    }
 
   function getNumber(min, max){
     min = Math.ceil(min);
@@ -36,22 +51,21 @@ locationCall()
       try {
       const response = await axios.get(call)
       let location = response.data.name
-      console.log(location)
+      displayLocation(location)
     } catch(error) {
       console.log(error)
     }
     }
 
-  async function adjectiveCall(searchTerm) {
-    const url = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/'
-    const call = `${url}${searchTerm}${'?key='}${thesaurusKey}`
+  async function adjectiveCall() {
+    const randomUrl = `${"https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key="}`
+    const call = `${randomUrl}${randomKey}`
       try {
       const response = await axios.get(call)
-      console.log(response)
+      displayAdjective(response.data.word)
     } catch(error) {
       console.log(error)
     }
-    }
-
-
+  }
+    
 })

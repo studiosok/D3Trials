@@ -3,7 +3,7 @@ body {
   background-color: #2d3038;
 }
 
-h1, p {
+p {
   color: #e3e4e8;
 }
 
@@ -11,6 +11,13 @@ h1 {
   font-style: semi-bold;
   text-align: center;
   margin: 50px;
+  color: #e3e4e8;
+}
+h2, h3 {
+  font-style: semi-bold;
+  text-align: center;
+  margin: 30px;
+  color: #e3e4e8;
 }
 
 button {
@@ -27,19 +34,29 @@ button:hover{
     box-shadow: 0 0 1px 1px #cbccd1;
 }
 
-#beforeSearch {
+.beforeClick {
   display: none;
 }
 
-#afterSearch {
-  display: true;
+
+.center {
+  width: 50%;
+  margin: auto;
 }
 
-.flex-container {
-  margin: 10px;
-  display: flex;
-  justify-content: space-evenly;
+#showLoc, #showAdj, #showSub  {
+  margin: auto;
+  position: relative;
+  max-width: 275px;
+  color: #464b4f;
+  margin: 0 auto 30px;
+  border: 2px solid #d1d9e0;
+  background-color: #d1d9e0;
+  border-radius: 4px;
+  padding: 10px
 }
+
+
 .line {
   width: .3em;
   height: 7em;
